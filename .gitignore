@@ -1,0 +1,35 @@
+node_modules/
+.next/
+coverage/
+.DS_Store
+*.log
+.env*
+!.env.example
+
+# Arquivos temporários
+*.tmp
+*.temp
+cookies.txt
+*.pdf
+*.sqlite
+*.db
+
+# Arquivos de documentação temporários
+*.md.bak
+*.md.tmp
+
+# Arquivos de dados
+.data/
+
+# Arquivos de build
+dist/
+build/
+
+# Arquivos de IDE
+.vscode/
+.idea/
+*.swp
+*.swo
+
+# Arquivos de sistema
+Thumbs.db

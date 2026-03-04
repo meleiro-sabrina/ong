@@ -1,0 +1,165 @@
+@import "tailwindcss";
+@import "tw-animate-css";
+
+@theme {
+  --color-ngo-primary: #1E3A8A;
+  --color-ngo-secondary: #3B82F6;
+  --color-ngo-accent: #16A34A;
+  --color-ngo-bg: #F8FAFC;
+  --color-ngo-sidebar: #0F172A;
+  --color-ngo-danger: #DC2626;
+  --color-ngo-warning: #F59E0B;
+}
+
+body {
+  background-color: var(--color-ngo-bg);
+  color: #334155;
+}
+
+/* Global date picker fixes for all devices */
+input[type="date"] {
+  position: relative;
+  z-index: 30;
+}
+
+input[type="date"]:focus {
+  z-index: 30;
+}
+
+/* Native date picker styling */
+input[type="date"]::-webkit-calendar-picker-indicator {
+  z-index: 30;
+  cursor: pointer;
+}
+
+input[type="date"]::-moz-calendar-picker {
+  z-index: 30;
+}
+
+/* Ensure date pickers don't overlay modals */
+.modal-open input[type="date"] {
+  z-index: 31;
+}
+
+/* Mobile form controls fix */
+@media (max-width: 768px) {
+  select {
+    position: relative;
+    z-index: 50;
+    -webkit-appearance: none;
+    appearance: none;
+    background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' fill='none' viewBox='0 0 20 20'%3e%3cpath stroke='%236b7280' stroke-linecap='round' stroke-linejoin='round' stroke-width='1.5' d='M6 8l4 4 4-4'/%3e%3c/svg%3e");
+    background-position: right 0.5rem center;
+    background-repeat: no-repeat;
+    background-size: 1.5em 1.5em;
+    padding-right: 2.5rem;
+    max-height: 44px;
+    overflow-y: auto;
+  }
+  
+  select:focus {
+    z-index: 50;
+    outline: none;
+    box-shadow: 0 0 0 3px rgba(59, 130, 246, 0.1);
+  }
+  
+  /* Custom dropdown for long lists on mobile */
+  select[size], select[multiple] {
+    max-height: 200px;
+    overflow-y: auto;
+    -webkit-appearance: listbox;
+    appearance: listbox;
+  }
+  
+  /* For native select dropdowns on mobile */
+  @supports (-webkit-appearance: none) {
+    select {
+      background-image: none;
+      padding-right: 1rem;
+    }
+  }
+  
+  input[type="date"] {
+    position: relative;
+    z-index: 30;
+    min-height: 2.5rem;
+  }
+  
+  input[type="date"]:focus {
+    z-index: 30;
+    outline: none;
+    box-shadow: 0 0 0 3px rgba(59, 130, 246, 0.1);
+  }
+  
+  /* Native date picker dropdown styling */
+  input[type="date"]::-webkit-calendar-picker-indicator {
+    z-index: 30;
+    cursor: pointer;
+  }
+  
+  input[type="date"]::-webkit-inner-spin-button {
+    z-index: 30;
+  }
+  
+  input[type="date"]::-webkit-outer-spin-button {
+    z-index: 30;
+  }
+  
+  /* Ensure dropdowns appear above modals on mobile */
+  .modal-open select {
+    position: relative;
+    z-index: 51;
+  }
+  
+  .modal-open input[type="date"] {
+    position: relative;
+    z-index: 31;
+  }
+  
+  /* Fix for iOS select dropdown */
+  select option {
+    background-color: white;
+    color: #1f2937;
+    padding: 0.5rem;
+    font-size: 14px;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    max-width: 100%;
+  }
+  
+  /* Improve touch targets for mobile */
+  select, input[type="date"] {
+    min-height: 44px;
+    font-size: 16px; /* Prevent zoom on iOS */
+  }
+  
+  /* Container for long select dropdowns */
+  .select-container {
+    position: relative;
+    z-index: 50;
+  }
+  
+  .select-container select {
+    position: relative;
+    z-index: 50;
+  }
+  
+  /* Global date picker fixes */
+  input[type="date"] {
+    position: relative;
+    z-index: 30 !important;
+  }
+  
+  /* Force calendar overlays to stay in background */
+  input[type="date"]::-webkit-calendar-picker-indicator {
+    position: relative;
+    z-index: 30;
+  }
+  
+  /* Firefox date picker */
+  input[type="date"]::-moz-calendar-picker {
+    position: relative;
+    z-index: 30;
+  }
+}

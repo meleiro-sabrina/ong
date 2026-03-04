@@ -1,0 +1,68 @@
+/* Z-Index Hierarchy for ONG App
+ * 
+ * This file documents the z-index structure to prevent layer conflicts
+ * 
+ * Hierarchy (lowest to highest):
+ * 0-29: Normal content elements
+ * 30: Input fields (date, text, etc.) - CALENDARS stay here
+ * 31: Input fields when modal is open
+ * 40: Sidebar elements
+ * 50: Select dropdowns and containers
+ * 51: Select dropdowns when modal is open
+ * 60: MobileSelect modal and overlay
+ * 60: Custom mobile dropdowns
+ * 70: Toast notifications
+ * 80: Loading overlays
+ * 90: Admin tooltips
+ * 100: Debug elements
+ */
+
+/* Z-Index Documentation - Quick Reference */
+
+/* Base Level: 0-29 */
+.main-content { z-index: 1; }
+.normal-text { z-index: 10; }
+.normal-input { z-index: 30; }
+
+/* Form Controls: 30-59 */
+input[type="date"] { z-index: 30; } /* CALENDARS stay at 30 */
+input[type="text"] { z-index: 30; }
+input[type="time"] { z-index: 30; }
+textarea { z-index: 30; }
+.modal-open input[type="date"] { z-index: 31; }
+.modal-open input[type="text"] { z-index: 31; }
+.sidebar { z-index: 40; } /* Fixed sidebar */
+select { z-index: 50; }
+.modal-open select { z-index: 51; }
+
+/* Mobile Components: 60-69 */
+.mobile-select-overlay { z-index: 60; }
+.mobile-select-modal { z-index: 60; }
+.mobile-dropdown { z-index: 60; }
+
+/* Notifications: 70-79 */
+.toast-notification { z-index: 70; }
+.alert-banner { z-index: 71; }
+
+/* System Overlays: 80-89 */
+.loading-overlay { z-index: 80; }
+.system-modal { z-index: 81; }
+
+/* Special Elements: 90+ */
+.admin-tooltip { z-index: 90; }
+.debug-panel { z-index: 100; }
+
+/* IMPORTANT: Calendar/Date Picker Behavior
+ * Native date pickers from browsers should stay at z-index: 30
+ * This prevents them from overlaying modals and mobile selects
+ * Chrome/Safari: ::-webkit-calendar-picker-indicator
+ * Firefox: ::-moz-calendar-picker
+ */
+
+/* Important Rules:
+ * 1. NEVER use z-index > 60 for form controls
+ * 2. Calendars/date pickers MUST stay at z-index 30
+ * 3. MobileSelect gets highest priority (z-60)
+ * 4. Always check this hierarchy before adding new z-index values
+ * 5. Use semantic class names that indicate purpose
+ */
